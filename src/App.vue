@@ -20,6 +20,6 @@ export default {
 .container-fluid {
   width: 80%;
   position: relative;
-  margin: 0 auto;
+  margin: 40px auto 0 auto;
 }
 </style>

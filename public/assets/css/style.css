@@ -19,7 +19,7 @@ body {
 }
 
 #nav {
-  background-image: url("./images/hero-banner.jpg");
+  background-image: url("../images/hero-banner.jpg");
   background-repeat: no-repeat;
   background-size: cover;
   height: 80vh;

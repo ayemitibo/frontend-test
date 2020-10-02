@@ -1,17 +1,42 @@
 <template>
   <div class="home">
-    Popular Starships
+    <h2>Popular Starships</h2>
+    <SpaceshipComponent />
+    <h2>Popular Planets</h2>
   </div>
 </template>
 
 <script>
 // @ is an alias to /src
-// import HelloWorld from "@/components/HelloWorld.vue";
-
+import SpaceshipComponent from "../components/StarShips";
 export default {
   name: "Home",
   components: {
-    // HelloWorld,
+    SpaceshipComponent,
   },
 };
 </script>
+<style lang="scss" scoped>
+$color-dark: #5a5858;
+
+.home {
+  color: $color-dark;
+  h2 {
+    text-align: center;
+    position: relative;
+    font-weight: 600;
+    font-size: 24px;
+    padding-bottom: 15px;
+  }
+  h2::after {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    height: 5px;
+    background: $color-dark;
+    width: 72px;
+    transform: translate(-50px, 0);
+  }
+}
+</style>
