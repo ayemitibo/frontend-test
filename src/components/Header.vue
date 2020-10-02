@@ -3,7 +3,7 @@
     <header>
       <nav class="navbar fixed-top">
         <div class="container">
-          <img src="/assets/images/logo.png" alt="" />
+          <img src="assets/images/logo.png" alt="" />
         </div>
       </nav>
     </header>
@@ -11,7 +11,7 @@
     <div class="content">
       <div style="margin-left: auto;margin-right: auto;">
         <div style="display: flex;">
-          <img src="/assets/images/logo.png" alt="" />
+          <img src="assets/images/logo.png" alt="" />
           <h1 class="content-text">Directory</h1>
         </div>
         <hr />
