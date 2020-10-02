@@ -18,6 +18,23 @@ body {
   margin: 0;
 }
 
+.col-md-4 {
+  width: 33.33333333%;
+  padding: 0 15px;
+}
+@media (max-width: 768px) {
+  .col-md-4 {
+    width: 100%;
+  }
+}
+
+.card-container {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  margin-bottom: 20px;
+}
+
 #nav {
   background-image: url("../images/hero-banner.jpg");
   background-repeat: no-repeat;

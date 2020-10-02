@@ -33,15 +33,6 @@ export default {
 };
 </script>
 <style scoped>
-.col-md-4 {
-  width: 33.33333333%;
-  padding: 0 15px;
-}
-@media (max-width: 768px) {
-  .col-md-4 {
-    width: 100%;
-  }
-}
 .card {
   background: white;
   margin-top: 40px;

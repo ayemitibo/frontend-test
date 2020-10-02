@@ -28,10 +28,3 @@ export default {
   },
 };
 </script>
-<style lang="scss" scoped>
-.card-container {
-  display: flex;
-  flex-direction: row;
-  flex-wrap: wrap;
-}
-</style>
