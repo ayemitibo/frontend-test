@@ -11,6 +11,11 @@ export default {
   components: {
     StarshipsCard,
   },
+  props: {
+    totalNumber: {
+      type: Number,
+    },
+  },
   data() {
     return {
       starShips: [],
@@ -21,7 +26,7 @@ export default {
       const apiResponse = this.$store.state.starShips.length
         ? this.$store.state.starShips
         : await this.$store.dispatch("getStarships");
-      this.starShips = apiResponse.splice(0, 6);
+      this.starShips = apiResponse.splice(0, this.totalNumber);
     } catch (error) {
       console.log(error);
     }

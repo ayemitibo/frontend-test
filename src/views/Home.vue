@@ -1,13 +1,13 @@
 <template>
   <div class="home">
-    <h2>Popular Starships</h2>
-    <SpaceshipComponent />
-    <ViewMoreButton />
-    <h2>Popular Planets</h2>
+    <SectionTitle :sectionTitle="'Popular Starships'" />
+    <SpaceshipComponent :totalNumber="6" />
+    <ViewMoreButton :routeTo="`/starships`" />
+    <SectionTitle :sectionTitle="'Popular Planets'" />
     <Planet />
-    <h2>Popular Characters</h2>
-    <Characters />
-    <ViewMoreButton />
+    <SectionTitle :sectionTitle="'Popular Characters'" />
+    <Characters :totalNumber="4" />
+    <ViewMoreButton :routeTo="`/characters`" />
   </div>
 </template>
 
@@ -16,6 +16,7 @@
 import SpaceshipComponent from "../components/StarShips";
 import ViewMoreButton from "../components/Button";
 import Planet from "../components/Planet";
+import SectionTitle from "../components/SectionTitle";
 import Characters from "../components/Character";
 export default {
   name: "Home",
@@ -24,30 +25,8 @@ export default {
     ViewMoreButton,
     Planet,
     Characters,
+    SectionTitle,
   },
 };
 </script>
-<style lang="scss" scoped>
-$color-dark: #5a5858;
-
-.home {
-  color: $color-dark;
-  h2 {
-    text-align: center;
-    position: relative;
-    font-weight: 600;
-    font-size: 24px;
-    padding-bottom: 15px;
-  }
-  h2::after {
-    content: "";
-    position: absolute;
-    bottom: 0;
-    left: 50%;
-    height: 5px;
-    background: $color-dark;
-    width: 72px;
-    transform: translate(-50px, 0);
-  }
-}
-</style>
+<style lang="scss" scoped></style>

@@ -11,6 +11,11 @@ export default {
   components: {
     CharacterCard,
   },
+  props: {
+    totalNumber: {
+      type: Number,
+    },
+  },
   data() {
     return {
       characters: [],
@@ -21,7 +26,7 @@ export default {
       const apiResponse = this.$store.state.characters.length
         ? this.$store.state.characters
         : await this.$store.dispatch("getCharacters");
-      this.characters = apiResponse.splice(0, 4);
+      this.characters = apiResponse.splice(0, this.totalNumber);
     } catch (error) {
       console.log(error);
     }
