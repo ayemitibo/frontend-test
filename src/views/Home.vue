@@ -5,6 +5,9 @@
     <ViewMoreButton />
     <h2>Popular Planets</h2>
     <Planet />
+    <h2>Popular Characters</h2>
+    <Characters />
+    <ViewMoreButton />
   </div>
 </template>
 
@@ -13,12 +16,14 @@
 import SpaceshipComponent from "../components/StarShips";
 import ViewMoreButton from "../components/Button";
 import Planet from "../components/Planet";
+import Characters from "../components/Character";
 export default {
   name: "Home",
   components: {
     SpaceshipComponent,
     ViewMoreButton,
     Planet,
+    Characters,
   },
 };
 </script>

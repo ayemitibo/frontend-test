@@ -8,6 +8,7 @@ export default new Vuex.Store({
   state: {
     starShips: [],
     planets: [],
+    characters: [],
   },
   mutations: {
     GET_ALL_STARTSHIPS(state, starShips) {
@@ -15,6 +16,9 @@ export default new Vuex.Store({
     },
     GET_ALL_PLANETS(state, planets) {
       state.planets = planets;
+    },
+    GET_ALL_CHARACTERS(state, characters) {
+      state.characters = characters;
     },
   },
   actions: {
@@ -32,6 +36,15 @@ export default new Vuex.Store({
         const planets = await apiClient.get("/planets/");
         commit("GET_ALL_PLANETS", planets.results);
         return planets.results;
+      } catch (error) {
+        console.log(error);
+      }
+    },
+    async getCharacters({ commit }) {
+      try {
+        const characters = await apiClient.get("/people/");
+        commit("GET_ALL_CHARACTERS", characters.results);
+        return characters.results;
       } catch (error) {
         console.log(error);
       }
