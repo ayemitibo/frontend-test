@@ -3,7 +3,7 @@
     <header>
       <nav class="navbar fixed-top">
         <div class="container">
-          <img src="assets/images/logo.png" alt="" />
+          <img src="/assets/images/logo.png" alt="" />
         </div>
       </nav>
     </header>
