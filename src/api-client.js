@@ -1,6 +1,6 @@
 import axios from "axios";
 const apiClient = axios.create({
-  baseURL: "http://swapi.dev/api/",
+  baseURL: process.env.VUE_APP_BASE_URL,
   headers: {
     Accept: "application/json",
   },

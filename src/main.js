@@ -2,9 +2,6 @@ import Vue from "vue";
 import App from "./App.vue";
 import router from "./router";
 import store from "./store";
-import carousel from "vue-owl-carousel";
-
-Vue.component("carousel", carousel);
 
 Vue.config.productionTip = false;
 
