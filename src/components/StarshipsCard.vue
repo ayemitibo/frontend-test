@@ -3,9 +3,7 @@
     <div class="card">
       <div
         class="cardTop"
-        :style="
-          `backgroundImage: url(/assets/images/starship-${1 + index}.jpg)`
-        "
+        :style="`backgroundImage: url(assets/images/starship-${1 + index}.jpg)`"
       ></div>
       <div class="cardBottom">
         <div class="cardText">

@@ -2,7 +2,7 @@
   <div class="col-md-4" style="height : 350px">
     <div
       class="card-content"
-      :style="`backgroundImage : url(/assets/images/planet-${1 + index}.jpg)`"
+      :style="`backgroundImage : url(assets/images/planet-${1 + index}.jpg)`"
     >
       <h5>
         {{ planet.name }}
