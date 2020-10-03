@@ -45,7 +45,6 @@ select {
   box-sizing: border-box;
   height: 30px;
   padding: 0 20px;
-  background-image: url("data:image/svg+xml,%3Csvg version=1.1 xmlns=http://www.w3.org/2000/svg xmlns:xlink=http://www.w3.org/1999/xlink x=0px y=0px width=10px height=10px viewBox=0 0 10 10 enable-background=new 0 0 10 10 xml:space=preserve%3E%3Cpolygon points=7,3.5 5,6.5 3,3.5 /%3E%3C/svg%3E");
   background-repeat: no-repeat;
   background-position: right center;
   background-position: calc(100% - 6px) center;
