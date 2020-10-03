@@ -21,17 +21,26 @@ export default {
       filteredData: [],
     };
   },
+  watch: {
+    $route: {
+      immediate: true,
+      handler() {
+        this.$store.dispatch("seachField", "");
+      },
+    },
+  },
   computed: {
     characters: {
       get() {
         let { characters, filteredText } = this.$store.state;
-        console.log(filteredText);
         if (filteredText) {
           characters = characters.filter((item) => {
             return item.name.toLowerCase().includes(filteredText.toLowerCase());
           });
+          return characters;
+        } else {
+          return this.filteredData;
         }
-        return characters;
       },
       set(value) {
         return value;
@@ -40,8 +49,6 @@ export default {
   },
   methods: {
     filterCharacters(gender) {
-      console.log(gender);
-      console.log(this.characters, this.filteredData);
       [...this.characters] = this.filteredData;
       this.characters = this.characters.filter((item) => {
         return item.gender == gender;
@@ -53,8 +60,7 @@ export default {
       const [...apiResponse] = this.$store.state.characters.length
         ? this.$store.state.characters
         : await this.$store.dispatch("getCharacters");
-      this.characters = apiResponse.splice(0, this.totalNumber);
-      this.filteredData = this.characters;
+      this.filteredData = apiResponse.splice(0, this.totalNumber);
     } catch (error) {
       console.log(error);
     }

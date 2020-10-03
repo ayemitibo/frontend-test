@@ -28,6 +28,7 @@
             <div class="input-field">
               <input
                 type="text"
+                v-model="filteredText"
                 name=""
                 @input="searchField"
                 id=""
@@ -42,9 +43,23 @@
 </template>
 <script>
 export default {
+  data() {
+    return {
+      filteredText: "",
+    };
+  },
+  watch: {
+    $route: {
+      immediate: true,
+      handler() {
+        this.filteredText = "";
+      },
+    },
+  },
   methods: {
-    searchField({ target }) {
-      this.$store.dispatch("seachField", target.value);
+    searchField() {
+      let inputData = this.filteredText;
+      this.$store.dispatch("seachField", inputData);
     },
   },
 };
