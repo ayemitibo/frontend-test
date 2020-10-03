@@ -25,6 +25,7 @@ export default new Vuex.Store({
     async getStarships({ commit }) {
       try {
         const starShips = await apiClient.get("/starships/");
+        console.log(starShips, "store.js");
         commit("GET_ALL_STARTSHIPS", starShips.results);
         return starShips.results;
       } catch (error) {

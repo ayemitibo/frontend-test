@@ -23,7 +23,7 @@ export default {
   },
   async mounted() {
     try {
-      const apiResponse = this.$store.state.planets.length
+      const [...apiResponse] = this.$store.state.planets.length
         ? this.$store.state.planets
         : await this.$store.dispatch("getPlanets");
       this.planets = apiResponse.splice(0, 3);

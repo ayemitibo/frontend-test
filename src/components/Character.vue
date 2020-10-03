@@ -23,7 +23,7 @@ export default {
   },
   async mounted() {
     try {
-      const apiResponse = this.$store.state.characters.length
+      const [...apiResponse] = this.$store.state.characters.length
         ? this.$store.state.characters
         : await this.$store.dispatch("getCharacters");
       this.characters = apiResponse.splice(0, this.totalNumber);

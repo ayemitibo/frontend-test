@@ -23,9 +23,10 @@ export default {
   },
   async mounted() {
     try {
-      const apiResponse = this.$store.state.starShips.length
+      const [...apiResponse] = this.$store.state.starShips.length
         ? this.$store.state.starShips
         : await this.$store.dispatch("getStarships");
+      console.log(apiResponse);
       this.starShips = apiResponse.splice(0, this.totalNumber);
     } catch (error) {
       console.log(error);
