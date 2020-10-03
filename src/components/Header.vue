@@ -29,6 +29,7 @@
               <input
                 type="text"
                 name=""
+                @input="searchField"
                 id=""
                 placeholder="Enter a search item"
               />
@@ -39,6 +40,15 @@
     </div>
   </div>
 </template>
+<script>
+export default {
+  methods: {
+    searchField({ target }) {
+      this.$store.dispatch("seachField", target.value);
+    },
+  },
+};
+</script>
 <style lang="scss" scoped>
 @mixin marginProperty($m, $w, $h) {
   margin: $m;

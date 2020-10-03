@@ -1,13 +1,32 @@
 <template>
   <div class="mt-4">
-    FILTER :
-    <select>
-      <option>choose option</option>
-      <option>Male</option>
-      <option>Female</option>
+    {{ searchText }}
+    <select @change="selectFile" v-model="selected">
+      <option value="">choose option</option>
+      <option value="male">Male</option>
+      <option value="female">Female</option>
     </select>
   </div>
 </template>
+<script>
+export default {
+  data() {
+    return {
+      selected: "",
+    };
+  },
+  props: {
+    searchText: {
+      type: String,
+    },
+  },
+  methods: {
+    selectFile() {
+      this.$emit("getSelectedData", this.selected);
+    },
+  },
+};
+</script>
 <style lang="scss" scoped>
 select {
   -webkit-appearance: none;
@@ -18,7 +37,7 @@ select::-ms-expand {
 }
 
 .mt-4 {
-  margin-bottom: 20px;
+  display: inline;
 }
 
 //Add an SVG background

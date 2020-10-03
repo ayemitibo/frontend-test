@@ -9,16 +9,21 @@ export default new Vuex.Store({
     starShips: [],
     planets: [],
     characters: [],
+    filteredText: "",
   },
   mutations: {
     GET_ALL_STARTSHIPS(state, starShips) {
       state.starShips = starShips;
     },
+
     GET_ALL_PLANETS(state, planets) {
       state.planets = planets;
     },
     GET_ALL_CHARACTERS(state, characters) {
       state.characters = characters;
+    },
+    SEARCH_FIELD(state, filteredText) {
+      state.filteredText = filteredText;
     },
   },
   actions: {
@@ -49,6 +54,9 @@ export default new Vuex.Store({
       } catch (error) {
         console.log(error);
       }
+    },
+    seachField({ commit }, value) {
+      commit("SEARCH_FIELD", value);
     },
   },
   modules: {},

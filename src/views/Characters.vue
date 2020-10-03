@@ -1,8 +1,11 @@
 <template>
   <div class="about">
     <SectionTitle :sectionTitle="'Starwars Characters'" />
-    <SearchField />
-    <Characters :totalNumber="8" />
+    <div style="margin-bottom : 20px">
+      <SearchField :searchText="'FILTER'" @getSelectedData="filterCharacter" />
+      <SearchField :searchText="'GRID'" />
+    </div>
+    <Characters :totalNumber="8" ref="characters" />
   </div>
 </template>
 <script>
@@ -14,6 +17,12 @@ export default {
     SectionTitle,
     Characters,
     SearchField,
+  },
+
+  methods: {
+    filterCharacter(item) {
+      this.$refs.characters.filterCharacters(item);
+    },
   },
 };
 </script>
