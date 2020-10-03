@@ -4,16 +4,16 @@
       <div
         class="movie-card__overlay"
         :style="
-          `backgroundImage : url(assets/images/character-${1 + index}.jpg)`
+          `backgroundImage : url(assets/images/character-${
+            1 + index <= 3 ? 1 + index : Math.ceil(Math.random() * 4)
+          }.jpg)`
         "
       ></div>
       <div class="movie-card__content">
         <h2>{{ character.name }}</h2>
-        <p class="movie-card__desc">
-          A blade runner must pursue and try to terminate four replicants who
-          stole a ship in space and have returned to Earth to find their
-          creator.
-        </p>
+        <p class="movie-card__desc">Gender : {{ character.gender }}</p>
+        <p class="movie-card__desc">Birth Year : {{ character.birth_year }}</p>
+        <p class="movie-card__desc">Hair Color : {{ character.hair_color }}</p>
         <!-- <button class="btn btn-outline movie-card__button" type="button">
           Watch Trailer
         </button> -->
@@ -71,6 +71,10 @@ button {
   flex-direction: column;
   h2 {
     font-size: 18px;
+  }
+  p {
+    margin: 0;
+    font-size: 13px;
   }
 }
 .movie-card-container {

@@ -1,16 +1,24 @@
 <template>
   <div class="about">
     <SectionTitle :sectionTitle="'Popular Starships'" />
-    <SpaceshipComponent :totalNumber="12" />
+    <SpaceshipComponent :totalNumber="9" ref="starships" />
+    <PaginationButton @nextCharacters="nextCharacters" />
   </div>
 </template>
 <script>
 import SectionTitle from "../components/SectionTitle";
 import SpaceshipComponent from "../components/StarShips";
+import PaginationButton from "../components/Pagination";
 export default {
   components: {
     SectionTitle,
     SpaceshipComponent,
+    PaginationButton,
+  },
+  methods: {
+    async nextCharacters(page) {
+      this.$refs.starships.getStarShips(page);
+    },
   },
 };
 </script>

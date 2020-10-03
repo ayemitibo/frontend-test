@@ -3,7 +3,11 @@
     <div class="card">
       <div
         class="cardTop"
-        :style="`backgroundImage: url(assets/images/starship-${1 + index}.jpg)`"
+        :style="
+          `backgroundImage: url(assets/images/starship-${
+            index <= 5 ? 1 + index : Math.ceil(Math.random() * 4)
+          }.jpg)`
+        "
       ></div>
       <div class="cardBottom">
         <div class="cardText">

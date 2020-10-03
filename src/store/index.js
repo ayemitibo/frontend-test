@@ -27,10 +27,14 @@ export default new Vuex.Store({
     },
   },
   actions: {
-    async getStarships({ commit }) {
+    async getStarships({ commit }, page) {
       try {
-        const starShips = await apiClient.get("/starships/");
-        console.log(starShips, "store.js");
+        let starShips;
+        if (page) {
+          starShips = await apiClient.get(`/starships/?page=${page}`);
+        } else {
+          starShips = await apiClient.get("/starships/");
+        }
         commit("GET_ALL_STARTSHIPS", starShips.results);
         return starShips.results;
       } catch (error) {
@@ -46,9 +50,14 @@ export default new Vuex.Store({
         console.log(error);
       }
     },
-    async getCharacters({ commit }) {
+    async getCharacters({ commit }, page) {
       try {
-        const characters = await apiClient.get("/people/");
+        let characters;
+        if (page) {
+          characters = await apiClient.get(`/people/?page=${page}`);
+        } else {
+          characters = await apiClient.get("/people/");
+        }
         commit("GET_ALL_CHARACTERS", characters.results);
         return characters.results;
       } catch (error) {

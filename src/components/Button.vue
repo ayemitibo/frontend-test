@@ -23,4 +23,10 @@ export default {
   background: transparent;
   cursor: pointer;
 }
+
+@media (max-width: 768px) {
+  .btn-lg {
+    width: auto;
+  }
+}
 </style>

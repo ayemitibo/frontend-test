@@ -4,7 +4,9 @@
       <Header />
     </div>
     <div class="container-fluid">
-      <router-view />
+      <transition>
+        <router-view />
+      </transition>
     </div>
   </div>
 </template>

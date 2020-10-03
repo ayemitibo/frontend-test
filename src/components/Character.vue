@@ -1,15 +1,18 @@
 <template>
   <div class="card-container">
-    <template v-for="(item, index) in characters">
+    <Loader v-if="isFetching" :itemToShow="totalNumber" />
+    <template v-for="(item, index) in characters" v-else>
       <CharacterCard :character="item" :index="index" :key="index" />
     </template>
   </div>
 </template>
 <script>
 import CharacterCard from "./CharacterCard";
+import Loader from "./Loader";
 export default {
   components: {
     CharacterCard,
+    Loader,
   },
   props: {
     totalNumber: {
@@ -19,6 +22,8 @@ export default {
   data() {
     return {
       filteredData: [],
+      gender: "",
+      isFetching: true,
     };
   },
   watch: {
@@ -38,6 +43,11 @@ export default {
             return item.name.toLowerCase().includes(filteredText.toLowerCase());
           });
           return characters;
+        } else if (this.gender) {
+          characters = characters.filter((item) => {
+            return item.gender == this.gender;
+          });
+          return characters;
         } else {
           return this.filteredData;
         }
@@ -48,22 +58,27 @@ export default {
     },
   },
   methods: {
-    filterCharacters(gender) {
-      [...this.characters] = this.filteredData;
-      this.characters = this.characters.filter((item) => {
-        return item.gender == gender;
-      });
+    async getCharacters(page) {
+      try {
+        this.isFetching = true;
+        let apiResponse;
+        if (page) {
+          [...apiResponse] = await this.$store.dispatch("getCharacters", page);
+        } else {
+          [...apiResponse] = this.$store.state.characters.length
+            ? this.$store.state.characters
+            : await this.$store.dispatch("getCharacters");
+        }
+        this.filteredData = apiResponse.splice(0, this.totalNumber);
+        this.isFetching = false;
+      } catch (error) {
+        this.isFetching = false;
+        console.log(error);
+      }
     },
   },
   async mounted() {
-    try {
-      const [...apiResponse] = this.$store.state.characters.length
-        ? this.$store.state.characters
-        : await this.$store.dispatch("getCharacters");
-      this.filteredData = apiResponse.splice(0, this.totalNumber);
-    } catch (error) {
-      console.log(error);
-    }
+    await this.getCharacters();
   },
 };
 </script>
