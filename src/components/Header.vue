@@ -86,12 +86,6 @@ export default {
   margin-left: 15px;
 }
 
-.container-fluid {
-  width: 80%;
-  position: relative;
-  margin: 40px auto 0 auto;
-}
-
 $color-dark: #333333;
 .container {
   img {

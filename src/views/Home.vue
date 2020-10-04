@@ -1,7 +1,7 @@
 <template>
   <div class="home">
     <SectionTitle :sectionTitle="'Popular Starships'" />
-    <SpaceshipComponent :totalNumber="6" />
+    <StarshipComponent :totalNumber="6" />
     <ViewMoreButton :routeTo="`/starships`" />
     <SectionTitle :sectionTitle="'Popular Planets'" />
     <Planet />
@@ -13,7 +13,7 @@
 
 <script>
 // @ is an alias to /src
-import SpaceshipComponent from "../components/StarShips";
+import StarshipComponent from "../components/StarShips";
 import ViewMoreButton from "../components/Button";
 import Planet from "../components/Planet";
 import SectionTitle from "../components/SectionTitle";
@@ -21,7 +21,7 @@ import Characters from "../components/Character";
 export default {
   name: "Home",
   components: {
-    SpaceshipComponent,
+    StarshipComponent,
     ViewMoreButton,
     Planet,
     Characters,

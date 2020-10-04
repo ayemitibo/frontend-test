@@ -1,6 +1,8 @@
 <template>
   <div id="app">
-    <router-view />
+    <transition mode="out-in" name="slide">
+      <router-view :key="$route.fullPath" />
+    </transition>
   </div>
 </template>
 <style lang="scss" scoped></style>
