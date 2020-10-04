@@ -41,14 +41,6 @@ export default new Vuex.Store({
         console.log(error);
       }
     },
-    async getSingleStarship(context, id) {
-      try {
-        let starShips = await apiClient.get(`/starships/${id}/`);
-        return starShips.results;
-      } catch (error) {
-        console.log(error);
-      }
-    },
     async getPlanets({ commit }) {
       try {
         const planets = await apiClient.get("/planets/");

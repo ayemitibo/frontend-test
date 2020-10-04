@@ -27,7 +27,7 @@ const routes = [
       },
     ],
   },
-  { path: "/starship/:id", component: SingleStarShip },
+  { path: "/starship/:name", component: SingleStarShip },
 ];
 
 const router = new VueRouter({

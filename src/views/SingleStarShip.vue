@@ -3,6 +3,7 @@
     <SingleStarShipHeader :imageUrl="`assets/images/starship-1.jpg`" />
     <div class="container-fluid">
       <div style="width : 50%;margin : 0 auto">
+        <h2>{{ $route.params.name }}</h2>
         <p>
           Lorem ipsum, dolor sit amet consectetur adipisicing elit. Aut, neque!
           Modi inventore veniam recusandae beatae asperiores? Ad expedita rem
@@ -62,20 +63,6 @@ export default {
     return {
       filteredText: "",
     };
-  },
-  async mounted() {
-    try {
-      this.isFetching = true;
-      let [...apiResponse] = await this.$store.dispatch(
-        "getSingleStarship",
-        this.$route.params.id
-      );
-      this.filteredData = apiResponse.splice(0, this.totalNumber);
-      this.isFetching = false;
-    } catch (error) {
-      this.isFetching = false;
-      console.log(error);
-    }
   },
 };
 </script>

@@ -14,7 +14,7 @@
           <!--       Title and description will always show -->
           <p class="cardTitle">{{ starShip.name }}</p>
           <div class="stage">
-            <router-link tag="a" :to="`/starship/${index + 1}`"
+            <router-link tag="a" :to="`/starship/${starShip.name}`"
               >Read More</router-link
             >
           </div>

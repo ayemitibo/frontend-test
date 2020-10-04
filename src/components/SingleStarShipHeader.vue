@@ -18,7 +18,7 @@
         <div class="content-header">
           <div class="bordered bordered-right"></div>
           <div style="margin-left: auto;margin-right: auto;">
-            <h2>Correlian Scout</h2>
+            <h2>{{ $route.params.name }}</h2>
           </div>
           <div class="bordered bordered-left"></div>
         </div>
