@@ -15,7 +15,9 @@
           <p class="cardTitle">{{ starShip.name }}</p>
           <h4 class="cardInfo">Short Description</h4>
           <div class="stage">
-            <a href="#">Read More</a>
+            <router-link tag="a" :to="`/starship/${index + 1}`"
+              >Read More</router-link
+            >
           </div>
         </div>
       </div>

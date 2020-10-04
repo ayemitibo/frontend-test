@@ -1,27 +1,6 @@
 <template>
   <div id="app">
-    <div id="nav">
-      <Header />
-    </div>
-    <div class="container-fluid">
-      <transition>
-        <router-view />
-      </transition>
-    </div>
+    <router-view />
   </div>
 </template>
-<script>
-import Header from "./components/Header";
-export default {
-  components: {
-    Header,
-  },
-};
-</script>
-<style lang="scss" scoped>
-.container-fluid {
-  width: 80%;
-  position: relative;
-  margin: 40px auto 0 auto;
-}
-</style>
+<style lang="scss" scoped></style>

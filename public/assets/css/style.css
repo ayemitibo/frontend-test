@@ -38,7 +38,7 @@ body {
   margin-bottom: 20px;
 }
 
-#nav {
+.nav {
   background-image: url("../images/hero-banner.jpg");
   background-repeat: no-repeat;
   background-size: cover;

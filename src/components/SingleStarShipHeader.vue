@@ -5,7 +5,7 @@
         <header>
           <nav class="navbar fixed-top">
             <div class="container">
-              <img src="assets/images/logo.png" alt="" />
+              <img src="/assets/images/logo.png" alt="" />
             </div>
           </nav>
         </header>
@@ -13,7 +13,7 @@
         <div class="content">
           <div style="margin-left: auto;margin-right: auto;">
             <div style="display: flex;">
-              <img src="assets/images/logo.png" alt="" />
+              <img src="/assets/images/logo.png" alt="" />
               <h1 class="content-text">Directory</h1>
             </div>
             <hr />
@@ -31,9 +31,7 @@
                 <div class="input-field">
                   <input
                     type="text"
-                    v-model="filteredText"
                     name=""
-                    @input="searchField"
                     id=""
                     placeholder="Enter a search item"
                   />
@@ -44,36 +42,8 @@
         </div>
       </div>
     </div>
-    <div class="container-fluid">
-      <transition mode="out-in" name="slide">
-        <router-view></router-view>
-      </transition>
-    </div>
   </div>
 </template>
-<script>
-export default {
-  data() {
-    return {
-      filteredText: "",
-    };
-  },
-  watch: {
-    $route: {
-      immediate: true,
-      handler() {
-        this.filteredText = "";
-      },
-    },
-  },
-  methods: {
-    searchField() {
-      let inputData = this.filteredText;
-      this.$store.dispatch("seachField", inputData);
-    },
-  },
-};
-</script>
 <style lang="scss" scoped>
 @mixin marginProperty($m, $w, $h) {
   margin: $m;

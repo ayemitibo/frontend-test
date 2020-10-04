@@ -2,26 +2,32 @@ import Vue from "vue";
 import VueRouter from "vue-router";
 import Home from "../views/Home.vue";
 import Characters from "../views/Characters.vue";
+import Header from "../components/Header";
 import StarShips from "../views/Starships.vue";
+import SingleStarShip from "../views/SingleStarShip.vue";
 
 Vue.use(VueRouter);
 
 const routes = [
   {
     path: "/",
-    name: "Home",
-    component: Home,
+    component: Header,
+    children: [
+      {
+        path: "",
+        component: Home,
+      },
+      {
+        path: "characters",
+        component: Characters,
+      },
+      {
+        path: "starships",
+        component: StarShips,
+      },
+    ],
   },
-  {
-    path: "/characters",
-    name: "Characters",
-    component: Characters,
-  },
-  {
-    path: "/starships",
-    name: "StarShips",
-    component: StarShips,
-  },
+  { path: "/starship/:id", component: SingleStarShip },
 ];
 
 const router = new VueRouter({
