@@ -4,45 +4,44 @@
     <div class="container-fluid">
       <div style="width : 50%;margin : 0 auto">
         <h2>{{ $route.params.name }}</h2>
-        <div v-if="planet">
-          <p>climate : {{ planet.climate }}</p>
-          <p>Diameter : {{ planet.diameter }}</p>
-          <p>Gravity : {{ planet.gravity }}</p>
-          <p>Orbital Period : {{ planet.orbital_period }}</p>
-          <p>Population : {{ planet.population }}</p>
-          <p>Rotation Period : {{ planet.rotation_period }}</p>
-          <p>Surface Water : {{ planet.surface_water }}</p>
-          <p>Terrain : {{ planet.terrain }}</p>
+        <div v-if="character">
+          <p>Birth Color : {{ character.birth_year }}</p>
+          <p>Diameter : {{ character.eye_color }}</p>
+          <p>Gender : {{ character.gender }}</p>
+          <p>Hair Color : {{ character.hair_color }}</p>
+          <p>Height : {{ character.height }}</p>
+          <p>Mass : {{ character.mass }}</p>
+          <p>Skin Color : {{ character.skin_color }}</p>
         </div>
         <div class="recently-viewed">
-          Recently Viewed Planets
+          Recently Viewed Characters
         </div>
       </div>
       <hr />
-      <PlanetComponent :numToShow="3" />
+      <CharactersComponent :totalNumber="2" />
       <PaginationDots />
     </div>
   </div>
 </template>
 <script>
-import PlanetComponent from "../components/Planet";
+import CharactersComponent from "../components/Character";
 import SingleStarShipHeader from "../components/SingleStarShipHeader";
 import PaginationDots from "../components/PaginationDots";
 export default {
   components: {
     SingleStarShipHeader,
-    PlanetComponent,
+    CharactersComponent,
     PaginationDots,
   },
   data() {
     return {
       filteredText: "",
-      planet: {},
+      character: {},
     };
   },
   async mounted() {
-    let [...planet] = this.$store.state.planets;
-    this.planet = planet.filter((item) => {
+    let [...character] = this.$store.state.characters;
+    this.character = character.filter((item) => {
       return item.name == this.$route.params.name;
     })[0];
   },
