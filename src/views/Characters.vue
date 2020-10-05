@@ -3,7 +3,6 @@
     <SectionTitle :sectionTitle="'Starwars Characters'" />
     <div style="margin-bottom : 20px">
       <SearchField :searchText="'FILTER'" @getSelectedData="filterCharacter" />
-      <SearchField :searchText="'GRID'" />
     </div>
     <Characters :totalNumber="8" ref="characters" />
     <PaginationButton @next="nextCharacters" />

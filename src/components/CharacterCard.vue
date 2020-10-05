@@ -14,6 +14,9 @@
         <p class="movie-card__desc">Gender : {{ character.gender }}</p>
         <p class="movie-card__desc">Birth Year : {{ character.birth_year }}</p>
         <p class="movie-card__desc">Hair Color : {{ character.hair_color }}</p>
+        <router-link :to="`/character/${character.name}`"
+          >Read More</router-link
+        >
         <!-- <button class="btn btn-outline movie-card__button" type="button">
           Watch Trailer
         </button> -->
@@ -81,5 +84,17 @@ button {
   display: flex;
   height: 100%;
   background: #ababab26;
+}
+a {
+  text-align: end;
+  line-height: 1em;
+  letter-spacing: 0.06em;
+  font-weight: 300;
+  font-size: 13px;
+  text-decoration: none;
+  color: black;
+  background: transparent;
+  padding: 15px 12px 15px 15px;
+  /* transition: background 200ms; */
 }
 </style>

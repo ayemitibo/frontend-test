@@ -2,9 +2,11 @@ import Vue from "vue";
 import VueRouter from "vue-router";
 import Home from "../views/Home.vue";
 import Characters from "../views/Characters.vue";
+import SingleCharacter from "../views/SingleCharacter.vue";
 import Header from "../components/Header";
 import StarShips from "../views/Starships.vue";
 import SingleStarShip from "../views/SingleStarShip.vue";
+import SinglePlanet from "../views/SinglePlanet.vue";
 import Planets from "../views/Planets.vue";
 
 Vue.use(VueRouter);
@@ -33,6 +35,8 @@ const routes = [
     ],
   },
   { path: "/starship/:name", component: SingleStarShip },
+  { path: "/planet/:name", component: SinglePlanet },
+  { path: "/character/:name", component: SingleCharacter },
 ];
 
 const router = new VueRouter({

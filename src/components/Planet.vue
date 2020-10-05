@@ -11,8 +11,8 @@ import PlanetCard from "./PlanetCard";
 export default {
   data() {
     return {
-      planets: [],
       isFetching: true,
+      filteredData: [],
     };
   },
   props: {
@@ -22,6 +22,32 @@ export default {
   },
   components: {
     PlanetCard,
+  },
+  watch: {
+    $route: {
+      immediate: true,
+      handler() {
+        this.$store.dispatch("seachField", "");
+      },
+    },
+  },
+  computed: {
+    planets: {
+      get() {
+        let { planets, filteredText } = this.$store.state;
+        if (filteredText) {
+          planets = planets.filter((item) => {
+            return item.name.toLowerCase().includes(filteredText.toLowerCase());
+          });
+          return planets;
+        } else {
+          return this.filteredData;
+        }
+      },
+      set(value) {
+        return value;
+      },
+    },
   },
   methods: {
     async getPlanets(page) {
@@ -35,7 +61,7 @@ export default {
             ? this.$store.state.planets
             : await this.$store.dispatch("getPlanets");
         }
-        this.planets = apiResponse.splice(0, this.numToShow);
+        this.filteredData = apiResponse.splice(0, this.numToShow);
         this.isFetching = false;
       } catch (error) {
         this.isFetching = false;
