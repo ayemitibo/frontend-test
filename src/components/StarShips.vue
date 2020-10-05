@@ -8,11 +8,9 @@
 </template>
 <script>
 import StarshipsCard from "./StarshipsCard";
-import Loader from "./Loader";
 export default {
   components: {
     StarshipsCard,
-    Loader,
   },
   props: {
     totalNumber: {

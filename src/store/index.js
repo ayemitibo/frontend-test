@@ -41,9 +41,14 @@ export default new Vuex.Store({
         console.log(error);
       }
     },
-    async getPlanets({ commit }) {
+    async getPlanets({ commit }, page) {
       try {
-        const planets = await apiClient.get("/planets/");
+        let planets;
+        if (page) {
+          planets = await apiClient.get(`/planets/?page=${page}`);
+        } else {
+          planets = await apiClient.get("/planets/");
+        }
         commit("GET_ALL_PLANETS", planets.results);
         return planets.results;
       } catch (error) {

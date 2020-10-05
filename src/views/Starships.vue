@@ -1,8 +1,8 @@
 <template>
-  <div class="about">
+  <div class="starships">
     <SectionTitle :sectionTitle="'Popular Starships'" />
     <SpaceshipComponent :totalNumber="9" ref="starships" />
-    <PaginationButton @nextCharacters="nextCharacters" />
+    <PaginationButton @next="nextCharacters" />
   </div>
 </template>
 <script>

@@ -1,33 +1,50 @@
 <template>
   <div class="gtco-testimonials card-container">
+    <Loader v-if="isFetching" :itemToShow="numToShow" :widthSize="'33.3%'" />
     <template v-for="(item, index) in planets">
       <PlanetCard :planet="item" :key="index" :index="index" />
     </template>
-    <PaginationDots />
   </div>
 </template>
 <script>
 import PlanetCard from "./PlanetCard";
-import PaginationDots from "./PaginationDots";
 export default {
   data() {
     return {
       planets: [],
+      isFetching: true,
     };
+  },
+  props: {
+    numToShow: {
+      type: Number,
+    },
   },
   components: {
     PlanetCard,
-    PaginationDots,
+  },
+  methods: {
+    async getPlanets(page) {
+      try {
+        let apiResponse;
+        this.isFetching = true;
+        if (page) {
+          [...apiResponse] = await this.$store.dispatch("getPlanets", page);
+        } else {
+          [...apiResponse] = this.$store.state.planets.length
+            ? this.$store.state.planets
+            : await this.$store.dispatch("getPlanets");
+        }
+        this.planets = apiResponse.splice(0, this.numToShow);
+        this.isFetching = false;
+      } catch (error) {
+        this.isFetching = false;
+        console.log(error);
+      }
+    },
   },
   async mounted() {
-    try {
-      const [...apiResponse] = this.$store.state.planets.length
-        ? this.$store.state.planets
-        : await this.$store.dispatch("getPlanets");
-      this.planets = apiResponse.splice(0, 3);
-    } catch (error) {
-      console.log(error);
-    }
+    await this.getPlanets();
   },
 };
 </script>

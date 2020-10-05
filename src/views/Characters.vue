@@ -6,7 +6,7 @@
       <SearchField :searchText="'GRID'" />
     </div>
     <Characters :totalNumber="8" ref="characters" />
-    <PaginationButton @nextCharacters="nextCharacters" />
+    <PaginationButton @next="nextCharacters" />
   </div>
 </template>
 <script>

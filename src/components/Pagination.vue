@@ -24,7 +24,7 @@ export default {
       if (this.start > this.endStart) {
         this.start = this.start - 1;
         this.end = this.end - 8;
-        this.$emit("nextCharacters", this.start);
+        this.$emit("next", this.start);
       } else {
         return;
       }
@@ -33,7 +33,7 @@ export default {
       if (this.start < this.endNumber) {
         this.start = this.start + 1;
         this.end = this.end + 8;
-        this.$emit("nextCharacters", this.start);
+        this.$emit("next", this.start);
       } else {
         return;
       }
